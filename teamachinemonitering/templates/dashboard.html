@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tea Machine Monitoring Dashboard</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <h2>☕ Tea Machine</h2>
+
+    <ul>
+        <li><a href="/">🏠 Dashboard</a></li>
+        <li><a href="/analytics">📊 Analytics</a></li>
+        <li><a href="/history">📜 History</a></li>
+        <li><a href="/reports">📄 Reports</a></li>
+        <li><a href="/settings">⚙ Settings</a></li>
+    </ul>
+
+</div>
+
+<div class="main">
+
+    <div class="header">
+
+        <h1>Tea Leaf Cutting Machine Monitoring</h1>
+
+        <div class="wifi">
+            📶 {{ data.wifi_status }}
+        </div>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card green">
+            <h3>Machine Status</h3>
+            <h2>{{ data.machine_status }}</h2>
+        </div>
+
+        <div class="card blue">
+            <h3>Blade Status</h3>
+            <h2>{{ data.blade_status }}</h2>
+        </div>
+
+        <div class="card orange">
+            <h3>Running Time</h3>
+            <h2>{{ data.running_time }}</h2>
+        </div>
+
+        <div class="card red">
+            <h3>Machine ON Time</h3>
+            <h2>{{ data.machine_on_time }}</h2>
+        </div>
+
+        <div class="card purple">
+            <h3>Machine OFF Time</h3>
+            <h2>{{ data.machine_off_time }}</h2>
+        </div>
+
+        <div class="card cyan">
+            <h3>Last Sync</h3>
+            <h2>{{ data.last_sync }}</h2>
+        </div>
+
+    </div>
+
+    <div class="charts">
+
+        <div class="chart-box">
+
+            <h2>Running Hours</h2>
+
+            <canvas id="runtimeChart"></canvas>
+
+        </div>
+
+        <div class="chart-box">
+
+            <h2>Blade Stops</h2>
+
+            <canvas id="bladeChart"></canvas>
+
+        </div>
+
+    </div>
+
+    <div class="history">
+
+        <h2>Recent Activity</h2>
+
+        <table>
+
+            <tr>
+                <th>Time</th>
+                <th>Machine</th>
+                <th>Blade</th>
+                <th>Status</th>
+            </tr>
+
+            <tr>
+                <td>09:10</td>
+                <td>ON</td>
+                <td>RUNNING</td>
+                <td>✅ Normal</td>
+            </tr>
+
+            <tr>
+                <td>10:22</td>
+                <td>ON</td>
+                <td>STOPPED</td>
+                <td>⚠ Warning</td>
+            </tr>
+
+            <tr>
+                <td>11:05</td>
+                <td>OFF</td>
+                <td>STOPPED</td>
+                <td>🛑 Machine OFF</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="/static/js/dashboard.js"></script>
+
+</body>
+</html>
